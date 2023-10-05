@@ -3,7 +3,7 @@ package main
 import (
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
-	"Game/scenes"
+	"Game/screens"
 )
 
 func main(){
@@ -14,6 +14,6 @@ func main(){
 	window.SetFixedSize(true)
 	window.Resize(fyne.NewSize(800, 600))
 	
-	scenes.NewMenuScene( window )
+	scenes.NewMenu( window )
 	window.ShowAndRun()
 }

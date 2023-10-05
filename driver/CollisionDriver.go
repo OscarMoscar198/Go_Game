@@ -4,26 +4,26 @@ import (
 	"Game/models"
 )
 
-var d *models.AnDog
-var w *models.Warning
+var h *models.Dog
+var d *models.Warning
 
-type CollisionDriver struct {
+type CollisionMechanic struct {
 	gameOver bool
 }
 
-func NewCollisionDriver(AnDog *models.AnDog, Warning *models.Warning) *CollisionDriver {
-	d = AnDog
-	w = Warning
-	return &CollisionDriver{
+func NewCollisionMechanic(Dog *models.Dog, Warning *models.Warning) *CollisionMechanic {
+	h = Dog
+	d = Warning
+	return &CollisionMechanic{
 		gameOver: false,
 	}
 }
 
-func (c *CollisionDriver) Run() {
+func (c *CollisionMechanic) Run() {
 	for !c.gameOver{
-		if w.GetPosY() >= 400 {
-			if w.GetPosX() >= d.GetPosX()-50 && w.GetPosX() <= d.GetPosX()+50 {
-				w.SetRunning(false)
+		if d.GetPosY() >= 400 {
+			if d.GetPosX() >= h.GetPosX()-50 && d.GetPosX() <= h.GetPosX()+50 {
+				h.SetRunning(false)
 				d.SetRunning(false)
 				c.gameOver = true
 			}
@@ -31,6 +31,6 @@ func (c *CollisionDriver) Run() {
 	}
 }
 
-func (c *CollisionDriver) GetGameOver() bool {
+func (c *CollisionMechanic) GetGameOver() bool {
 	return c.gameOver
 }
